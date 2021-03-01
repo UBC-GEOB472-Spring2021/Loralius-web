@@ -5,14 +5,25 @@
 	<title>Metal Around the World: Band Density</title>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>	
-	<style>
-		body { margin: 0; padding: 0; }
-		#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  <style>
+	   body { margin: 0; padding: 0; }
+	    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+      .map-overlay {
+        position: absolute;
+        font-family: sans-serif;
+        margin-bottom: 40px;
+        margin-left: 20px;
+        padding: 5px;
+        width: 80%;
+        font-size: 14px;
+        color: #fff;
+      border-radius: 3px;
+      }
 	</style>
 </head>
 <body>
-
-	<style>
+<style>
 	.legend {
 	background-color: #fff;
 	border-radius: 3px;
@@ -36,10 +47,14 @@
 	margin-right: 5px;
 	width: 10px;
 	}
-	</style>
+</style>
+
+<div id='map' style='width: 1920px; height: 1080px;'></div>
+<div class='map-overlay' id='notes'><h2>Metal Around the World: Bands Per 100k Population</h2>
+<div id='pd'><p>Data sourced from Encyclopaedia Metallum; ESRI</p></div></div>
 
 <div id="map-legend" class="legend">
-<h4>Population</h4>
+<h4>Bands per 100k Humans</h4>
 <div><span style="background-color: #d2d2ad"></span>0.0014</div>
 <div><span style="background-color: #b3c686"></span>0.6564</div>
 <div><span style="background-color: #6aa98c"></span>2.3740</div>
@@ -47,10 +62,8 @@
 <div><span style="background-color: #00538a"></span>7.7630</div>
 <div><span style="background-color: #001570"></span>16.180</div>
 <div><span style="background-color: #000029"></span>37.150</div>
+<div><span style="background-color: #000000"></span>No data</div>
 </div>
-
-<div id='map' style='width: 1920px; height: 1080px;'></div>
-
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoibG9yYWxpdXMiLCJhIjoiY2tsb2lsMGl4MDQxYjJvbW03NDB5c29kdyJ9.0BA-JtjbaJuANE73pkV3pw';

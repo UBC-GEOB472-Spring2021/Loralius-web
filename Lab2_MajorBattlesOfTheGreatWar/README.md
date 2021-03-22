@@ -10,7 +10,7 @@ Insert link here[]
 
 2. Stringify resource 
 
-3. Time slider
+3. [Time slider](https://docs.mapbox.com/mapbox-gl-js/example/timeline-animation/)
 
 ## Reflective analysis: 
 

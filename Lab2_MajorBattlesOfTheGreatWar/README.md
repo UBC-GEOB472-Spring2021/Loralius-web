@@ -4,7 +4,7 @@
 
 ## Resources:
 
-Alison Deere was kind enough to have a look at my code and help figure out why my button was not working. It turns out that I have been using .getElementById() to reference an html div which had been using a class instead. Switching over to using #clearfilter and id='' fixed the issue!
+Alison Deere was kind enough to have a look at my code and help figure out why my button was not working. It turns out that I had been using .getElementById() to reference an html div which had been using a class instead. Switching over to using #clearfilter and id='' fixed the issue!
 
 1. [Information dialogue box](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-2/)
 

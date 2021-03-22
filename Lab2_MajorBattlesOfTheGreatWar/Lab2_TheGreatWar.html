@@ -170,7 +170,7 @@
       var filters = ['==', 'Year', waryears];
       map.setFilter('BattleIcons', filters);
     }
-
+    //Defines clear function to remove filters from layer BattleIcons
     function clear() {
       map.setFilter('BattleIcons',
         null
@@ -178,10 +178,10 @@
     };
 
     //When the map loads, a listener is added to the slider element that calls values defined by function filterBy(waryears) when slider and properties.Year are equal.
-    map.on('load', function () {
+    map.on('load', function() {
       document
         .getElementById('slider')
-        .addEventListener('input', function (e) {
+        .addEventListener('input', function(e) {
           var waryears = e.target.value
           filterBy(waryears);
 
@@ -189,7 +189,7 @@
         });
 
       //Queries BattleIcons layer within map style and adds click interactivity to each to display select layer properties in #feature window. Otherwise a defailt message in shown instead.
-      map.on('click', function (e) {
+      map.on('click', function(e) {
         var battlepoints = map.queryRenderedFeatures(e.point, {
           layers: ['BattleIcons']
         });
@@ -216,9 +216,12 @@
       });
     })
 
-    document.getElementById('clearfilter').addEventListener('click', function () {
-      clear()
-    });
+    // Sets an eventlistener to run the clear function when the clearfilter button is clicked
+    document
+      .getElementById('clearfilter')
+      .addEventListener('click', function() {
+        clear()
+      });
   </script>
 
 </body>

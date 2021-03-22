@@ -178,7 +178,7 @@
     };
 
     //When the map loads, a listener is added to the slider element that calls values defined by function filterBy(waryears) when slider and properties.Year are equal.
-    map.on('load', function() {
+    map.on('load', function () {
       document
         .getElementById('slider')
         .addEventListener('input', function (e) {
@@ -188,33 +188,39 @@
           .getElementById('clearfilter')
           .addEventListener('click', clear);
             });
+
         });
 
-    //Queries BattleIcons layer within map style and adds click interactivity to each to display select layer properties in #feature window. Otherwise a defailt message in shown instead.
-    map.on('click', function(e) {
-      var battlepoints = map.queryRenderedFeatures(e.point, {
-        layers: ['BattleIcons']
-      });
+      //Queries BattleIcons layer within map style and adds click interactivity to each to display select layer properties in #feature window. Otherwise a defailt message in shown instead.
+      map.on('click', function (e) {
+        var battlepoints = map.queryRenderedFeatures(e.point, {
+          layers: ['BattleIcons']
+        });
 
-      if (battlepoints.length > 0) {
-        document.getElementById('features').innerHTML =
-          '<h3><strong><em>' +
-          battlepoints[0].properties.Event +
-          '</em></strong></h3><p><strong>Location: ' +
-          battlepoints[0].properties.Location +
-          '</p><p>Date: ' +
-          battlepoints[0].properties.Date +
-          '</p><p>Allied Casualties: ' +
-          battlepoints[0].properties.AlliedCasualties +
-          '</p><p>Central Casualties: ' +
-          battlepoints[0].properties.CentralCasualties +
-          '</p><p>Outcome: ' +
-          battlepoints[0].properties.Outcome +
-          '</strong></em></p>';
-      } else {
-        document.getElementById('features').innerHTML =
-          '<p><h3><strong>Click on a battle!</strong></h3></p>';
-      };
+        if (battlepoints.length > 0) {
+          document.getElementById('features').innerHTML =
+            '<h3><strong><em>' +
+            battlepoints[0].properties.Event +
+            '</em></strong></h3><p><strong>Location: ' +
+            battlepoints[0].properties.Location +
+            '</p><p>Date: ' +
+            battlepoints[0].properties.Date +
+            '</p><p>Allied Casualties: ' +
+            battlepoints[0].properties.AlliedCasualties +
+            '</p><p>Central Casualties: ' +
+            battlepoints[0].properties.CentralCasualties +
+            '</p><p>Outcome: ' +
+            battlepoints[0].properties.Outcome +
+            '</strong></em></p>';
+        } else {
+          document.getElementById('features').innerHTML =
+            '<p><h3><strong>Click on a battle!</strong></h3></p>';
+        };
+      });
+    })
+
+    document.getElementById('clearfilter').addEventListener('click', function () {
+      clear()
     });
   </script>
 

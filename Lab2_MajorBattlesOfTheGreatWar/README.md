@@ -1,27 +1,30 @@
 # [Major Battles of the Great War (European Theatre)](https://ubc-geob472-spring2021.github.io/Loralius-web/Lab2_MajorBattlesOfTheGreatWar/Lab2_TheGreatWar)
 
-Insert map screenshot here []
+![alt text](https://ubc-geob472-spring2021.github.io/Loralius-web/Lab2_MajorBattlesOfTheGreatWar/Lab2SS_472.png)
 
 ## Resources:
 
+Alison Deere was kind enough to have a look at my code and help figure out why my button was not working. It turns out that I have been using .getElementById() to reference an html div which had been using a class instead. Switching over to using #clearfilter and id='' fixed the issue!
+
 1. [Information dialogue box](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-2/)
 
-2. Stringify resource 
-
-3. [Time slider](https://docs.mapbox.com/mapbox-gl-js/example/timeline-animation/)
+2. [Time slider](https://docs.mapbox.com/mapbox-gl-js/example/timeline-animation/)
 
 ## Reflective analysis: 
 
 This map was made for a general audience with a cursory awareness of World War I. I have found in my experience that knowledge about this Great War is sorely lacking compared to World War 2. To me, this is a great tragedy as the consequences for World War I were arguably the main drivers for the collapse of European empires and the rise of extremist ideologies in their wake, thus setting the stage for World War II and further radical social reforms. To this end, I resolved to create a map to address in part this issue. The purpose of this map is to illustrate the futility and wanton loss of life over mere scraps of land that repeatedly changed hands for little purpose over the course of the war. Given how distant European geographies are to the typical Canadian high-schooler (the most likely point at which the average person learns about WW1 through formal education), the passing mentions of foreign personages and placenames in unfamiliar tongues quite possibly has the effect of flying in one ear and out the other for those not terribly interested in history. Certainly, it is easy to feel drowned amidst a deluge of such information and succumb to assuming platitudes without actual understanding. (e.g. that trench warfare was static and the war a big ol' family feud between royal heads of state) Thus, this map locates large, key battles of the war sorted by year and delivers concise facts about each. The close clustering of so many major battles then, serves to paint a clear profile of just how static the war was, in spite of the vast resources marshalled in its course.
 
+### Cartographic design, features and interactivity
 
-Opted for a dialogue box instead of pop-up markers to reduce clutter, as many of the battles are clustered together. 
-
-Time slider adds a sense of progression to the map, allowing the user to experience the evolution of the warfronts in a spatial and temporal regard.
-
-Who did you design your map for? What questions or needs does the map attempt to raise or address? In what respects is your map successful and unsuccessful in this?
-What process did you follow in the design/iteration of the map? 
-How does your map incorporate interactivity in a way that adds understanding? 
-What are the intellectual justifications for your choices of data and cartographic stylings?
-In what ways could your map be improved? 
-Making reference to relevant cartographic/interaction principles you've learned in readings will improve your work.
+In designing the areal polygons for countries, I took care to emphasize the borders of each with solid black lines for the benefit of users not familiar with the states of Europe in this time period. I also wished to avoid the narrative of there being a "good" or "bad" side insofar as history being written by the victors and that both sides practised increasingly desparate and obscene atrocities in the pursuit of total war. If there was in fact any message this map is to imply, it is that the entire affair was a lamentable disaster for naught engineered by "lions led by donkeys". This is why I decided to avoid a colour scheme such as blue and red, opting instead for blue and green for the Central Powers and the Allies respectively. Neutral countries were assigned a muted brownish hue and those outside of the European theatre or otherwise not directly governed by a European state were coloured a dark grey. This colour scheme is depicted in a legend to the bottom right given to a solid grey fill for greater visual clarity and hierarchy. 
+Battle points were assigned a different colour by the year in which they occurred to help tell them apart. I also added a white outline to all points to contrast them from the background with the exception of 1918 points which received a black outline. Zoom scaling was set such that larger points would produce the effect of clustering when at small scale and dimmish in size at a larger scale to offer greater locational distinction. The points can also be filtered by year with a slider in the top right. I felt the inclusion of this slider helps bring the war to life, allowing for the spatial and temporal dynamics to be compared in succession and at the map user’s discretion. It is also another way for the user to differentiate each battle point. I also noticed that the slider helps bring to attention battle points that would otherwise be easier to miss, such as the ones at the peripheries: the Battle of Jutland and the Gallipoli campaign. Finally, the slider can be reset to its default condition at the initialisation of the page where all points are visible by clicking on the button ‘Reset Battles’. 
+The other main feature of this map is the dialogue box to the bottom left that contains key information about each battle when one is selected with a mouse-click. I opted for a permanent message box instead of a pop-up as I feel the presentation is cluttered and map features don’t get blocked by a pop-up. While the latter argument could also be made about this permanent dialogue box obscuring a chunk of the map, its placement is such that it is unlikely that the dialogue box would ever intrude upon the central object of interest being examined on the map. I also decided to make dialogue appear as a function of a click instead of a mouseover to provide for cases where text exceeds the width of the box and the user must manually scroll to the right to see the rest of the text. This was not accomplishable with a mouseover, as moving the mouse away from the point would dismiss the text. 
+### Areas for Improvement
+- Labels over areal polygons 
+(imported geojson features were divided into multiple vectors and the inherent country features would display multiple times. I couldn’t use any default baselayer names as those were for modern polities)
+- Animate the dialogue window so as to slide in and out from the side when a point is selected. [like so](https://stackoverflow.com/questions/54642804/adding-collapsible-sidebar-to-mapbox-map).
+(Unfortunately, I ran out of time and didn't have a chance to experiment enough to implement this feature. )
+- Increments for each year in the slider 
+(This would make it a lot easier to see which year one is currently in. My knowledge of html at this time isn’t solid enough to accomplish this in a timely manner)
+- Pictures, a Wikipedia link and a short paragraph on each battle 
+(This was my original intension at the outset of the project. However I ran out of time and the process was not quite as straightforward as I initially thought)

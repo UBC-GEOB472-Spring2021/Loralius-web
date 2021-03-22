@@ -1,8 +1,6 @@
-# Major Battles of the Great War (European Theatre)
+# [Major Battles of the Great War (European Theatre)](https://ubc-geob472-spring2021.github.io/Loralius-web/Lab2_MajorBattlesOfTheGreatWar/Lab2_TheGreatWar)
 
-Insert map here []
-
-Insert link here[]
+Insert map screenshot here []
 
 ## Resources:
 
